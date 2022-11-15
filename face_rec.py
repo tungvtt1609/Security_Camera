@@ -118,7 +118,7 @@ while True:
 			
 			if currentname != name:
 				currentname = name
-				play_sound(wav_path1)
+				playsound(wav_path1)
 				#speak('Xin chào mừng bạn'+ currentname + 'đã chấm công xong')
 				print(currentname)
 				
