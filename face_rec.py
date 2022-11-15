@@ -49,13 +49,17 @@ fps = FPS().start()
 wikipedia.set_lang('vi')
 language = 'vi'
 
+# Cau hinh duong dan den file alarm.wav
+wav_path = "/home/pi/Security_Camera/warning.wav"
+wav_path1 = "/home/pi/Security_Camera/done.wav"
 def speak(text):
     tts = gTTS(text=text, lang=language, slow=False)
     tts.save("sound.mp3")
     playsound.playsound("sound.mp3", False)
     os.remove("sound.mp3")
 
-
+def playsound(path):
+	os.system('aplay ' + path)
 # loop over frames from the video file stream
 while True:
 	# grab the frame from the threaded video stream and resize it
@@ -89,6 +93,7 @@ while True:
 		matches = face_recognition.compare_faces(data["encodings"], encoding)
 		name = "Unknown"  # if face is not recognized, then print Unknown
 		#speak('Xin lỗi tôi không nhận ra bạn')
+		playsound(wav_path)
 
 		# check to see if we have found a match
 		if True in matches:
@@ -113,7 +118,7 @@ while True:
 			
 			if currentname != name:
 				currentname = name
-				#play_sound()
+				play_sound(wav_path1)
 				#speak('Xin chào mừng bạn'+ currentname + 'đã chấm công xong')
 				print(currentname)
 				
