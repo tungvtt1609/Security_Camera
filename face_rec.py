@@ -15,6 +15,7 @@ import signal
 import playsound
 import wikipedia
 from gtts import gTTS
+import telepot
 
 #Initialize 'currentname' to trigger only when a new person is identified.
 currentname = "unknown"
