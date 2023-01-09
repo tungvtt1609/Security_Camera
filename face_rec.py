@@ -13,8 +13,6 @@ import os
 import sys
 import signal
 import playsound
-import wikipedia
-from gtts import gTTS
 import telepot
 import datetime
 from telepot.loop import MessageLoop
@@ -46,9 +44,6 @@ time.sleep(2.0)
 
 # start the FPS counter
 fps = FPS().start()
-
-# Initialize sound of function
-
 
 # Cau hinh duong dan den file alarm.wav
 wav_path = "/home/pi/Security_Camera/warning.wav"
@@ -86,7 +81,7 @@ def sendNotification(name):
 	global currentname
 
 	if currentname != name:
-		bot.sendMessage(chat_id, 'OK')
+		bot.sendMessage(chat_id, 'Người lạ')
 
 
 def main():
